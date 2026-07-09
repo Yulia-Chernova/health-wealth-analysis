@@ -27,8 +27,8 @@ The analysis combines multiple public datasets, integrates them into a unified d
 
 | Dataset | Source |
 |---|---|
-| Healthcare expenditure (% of GDP) | Our World in Data |
-| GDP, current US$ | World Bank |
+| Healthcare expenditure | Our World in Data |
+| GDP| World Bank |
 | Life expectancy | Our World in Data |
 | Gini coefficients | Harvard Dataverse |
 | Country and lending groups | World Bank |
