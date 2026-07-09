@@ -10,7 +10,7 @@ The analysis combines multiple public datasets, integrates them into a unified d
 
 ## Dashboard Preview
 
-![Dashboard overview](images/intro.png)
+![Dashboard overview](images/Intro.png)
 
 ---
 
