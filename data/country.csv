@@ -1,0 +1,219 @@
+﻿country_code,country_name,region_code,incomegroup_code,dd_code
+AFG,Afghanistan,MEA,LIC,PRE
+ALB,Albania,ECS,UMC,LTE
+DZA,Algeria,MEA,UMC,EAR
+ASM,American Samoa,EAS,HIC,
+AND,Andorra,ECS,HIC,
+AGO,Angola,SSF,LMC,PRE
+ATG,Antigua and Barbuda,LCN,HIC,PST
+ARG,Argentina,LCN,UMC,EAR
+ARM,Armenia,ECS,UMC,LTE
+ABW,Aruba,LCN,HIC,LTE
+AUS,Australia,EAS,HIC,PST
+AUT,Austria,ECS,HIC,PST
+AZE,Azerbaijan,ECS,UMC,LTE
+BHS,The Bahamas,LCN,HIC,LTE
+BHR,Bahrain,MEA,HIC,EAR
+BGD,Bangladesh,SAS,LMC,EAR
+BRB,Barbados,LCN,HIC,PST
+BLR,Belarus,ECS,UMC,PST
+BEL,Belgium,ECS,HIC,PST
+BLZ,Belize,LCN,UMC,EAR
+BEN,Benin,SSF,LMC,PRE
+BMU,Bermuda,NAC,HIC,
+BTN,Bhutan,SAS,LMC,EAR
+BOL,Bolivia,LCN,LMC,EAR
+BIH,Bosnia and Herzegovina,ECS,UMC,PST
+BWA,Botswana,SSF,UMC,EAR
+BRA,Brazil,LCN,UMC,LTE
+VGB,British Virgin Islands,LCN,HIC,
+BRN,Brunei Darussalam,EAS,HIC,LTE
+BGR,Bulgaria,ECS,HIC,PST
+BFA,Burkina Faso,SSF,LIC,PRE
+BDI,Burundi,SSF,LIC,PRE
+CPV,Cabo Verde,SSF,UMC,EAR
+KHM,Cambodia,EAS,LMC,EAR
+CMR,Cameroon,SSF,LMC,PRE
+CAN,Canada,NAC,HIC,PST
+CYM,Cayman Islands,LCN,HIC,
+CAF,Central African Republic,SSF,LIC,PRE
+TCD,Chad,SSF,LIC,PRE
+CHI,Channel Islands,ECS,HIC,
+CHL,Chile,LCN,HIC,LTE
+CHN,China,EAS,UMC,LTE
+COL,Colombia,LCN,UMC,LTE
+COM,Comoros,SSF,LMC,PRE
+COD,DR Congo,SSF,LIC,PRE
+COG,Congo,SSF,LMC,PRE
+CRI,Costa Rica,LCN,HIC,LTE
+CIV,Cote d Ivoire,SSF,LMC,PRE
+HRV,Croatia,ECS,HIC,PST
+CUB,Cuba,LCN,UMC,PST
+CUW,Curacao,LCN,HIC,
+CYP,Cyprus,ECS,HIC,LTE
+CZE,Czechia,ECS,HIC,PST
+DNK,Denmark,ECS,HIC,PST
+DJI,Djibouti,MEA,LMC,EAR
+DMA,Dominica,LCN,UMC,
+DOM,Dominican Republic,LCN,UMC,EAR
+ECU,Ecuador,LCN,UMC,EAR
+EGY,Egypt,MEA,LMC,EAR
+SLV,El Salvador,LCN,UMC,EAR
+GNQ,Equatorial Guinea,SSF,UMC,PRE
+ERI,Eritrea,SSF,LIC,PRE
+EST,Estonia,ECS,HIC,LTE
+SWZ,Eswatini,SSF,LMC,EAR
+ETH,Ethiopia,SSF,LIC,EAR
+FRO,Faroe Islands,ECS,HIC,
+FJI,Fiji,EAS,UMC,LTE
+FIN,Finland,ECS,HIC,PST
+FRA,France,ECS,HIC,PST
+PYF,French Polynesia,EAS,HIC,LTE
+GAB,Gabon,SSF,UMC,EAR
+GMB,The Gambia,SSF,LIC,PRE
+GEO,Georgia,ECS,UMC,LTE
+DEU,Germany,ECS,HIC,PST
+GHA,Ghana,SSF,LMC,EAR
+GIB,Gibraltar,ECS,HIC,
+GRC,Greece,ECS,HIC,PST
+GRL,Greenland,ECS,HIC,
+GRD,Grenada,LCN,UMC,EAR
+GUM,Guam,EAS,HIC,LTE
+GTM,Guatemala,LCN,UMC,EAR
+GIN,Guinea,SSF,LMC,PRE
+GNB,Guinea-Bissau,SSF,LIC,PRE
+GUY,Guyana,LCN,HIC,LTE
+HTI,Haiti,LCN,LMC,EAR
+HND,Honduras,LCN,LMC,EAR
+HKG,Hong Kong,EAS,HIC,PST
+HUN,Hungary,ECS,HIC,PST
+ISL,Iceland,ECS,HIC,LTE
+IND,India,SAS,LMC,EAR
+IDN,Indonesia,EAS,UMC,EAR
+IRN,Iran,MEA,UMC,EAR
+IRQ,Iraq,MEA,UMC,PRE
+IRL,Ireland,ECS,HIC,LTE
+IMN,Isle of Man,ECS,HIC,
+ISR,Israel,MEA,HIC,EAR
+ITA,Italy,ECS,HIC,PST
+JAM,Jamaica,LCN,UMC,LTE
+JPN,Japan,EAS,HIC,PST
+JOR,Jordan,MEA,LMC,EAR
+KAZ,Kazakhstan,ECS,UMC,LTE
+KEN,Kenya,SSF,LMC,PRE
+KIR,Kiribati,EAS,LMC,EAR
+PRK,North Korea,EAS,LIC,LTE
+KOR,South Korea,EAS,HIC,PST
+XKX,Kosovo,ECS,UMC,
+KWT,Kuwait,MEA,HIC,LTE
+KGZ,Kyrgyzstan,ECS,LMC,LTE
+LAO,Laos,EAS,LMC,EAR
+LVA,Latvia,ECS,HIC,LTE
+LBN,Lebanon,MEA,LMC,LTE
+LSO,Lesotho,SSF,LMC,EAR
+LBR,Liberia,SSF,LIC,PRE
+LBY,Libya,MEA,UMC,EAR
+LIE,Liechtenstein,ECS,HIC,
+LTU,Lithuania,ECS,HIC,PST
+LUX,Luxembourg,ECS,HIC,PST
+MAC,Macao,EAS,HIC,PST
+MDG,Madagascar,SSF,LIC,PRE
+MWI,Malawi,SSF,LIC,PRE
+MYS,Malaysia,EAS,UMC,LTE
+MDV,Maldives,SAS,UMC,EAR
+MLI,Mali,SSF,LIC,PRE
+MLT,Malta,MEA,HIC,PST
+MHL,Marshall Islands,EAS,UMC,
+MRT,Mauritania,SSF,LMC,PRE
+MUS,Mauritius,SSF,UMC,LTE
+MEX,Mexico,LCN,UMC,EAR
+FSM,Micronesia,EAS,LMC,EAR
+MDA,Moldova,ECS,UMC,LTE
+MCO,Monaco,ECS,HIC,
+MNG,Mongolia,EAS,UMC,LTE
+MNE,Montenegro,ECS,UMC,LTE
+MAR,Morocco,MEA,LMC,LTE
+MOZ,Mozambique,SSF,LIC,PRE
+MMR,Myanmar,EAS,LMC,EAR
+NAM,Namibia,SSF,LMC,EAR
+NRU,Nauru,EAS,HIC,
+NPL,Nepal,SAS,LMC,EAR
+NLD,Netherlands,ECS,HIC,PST
+NCL,New Caledonia,EAS,HIC,LTE
+NZL,New Zealand,EAS,HIC,PST
+NIC,Nicaragua,LCN,LMC,EAR
+NER,Niger,SSF,LIC,PRE
+NGA,Nigeria,SSF,LMC,PRE
+MKD,North Macedonia,ECS,UMC,LTE
+MNP,Northern Mariana Islands,EAS,HIC,
+NOR,Norway,ECS,HIC,PST
+OMN,Oman,MEA,HIC,LTE
+PAK,Pakistan,MEA,LMC,EAR
+PLW,Palau,EAS,HIC,
+PAN,Panama,LCN,HIC,EAR
+PNG,Papua New Guinea,EAS,LMC,EAR
+PRY,Paraguay,LCN,UMC,EAR
+PER,Peru,LCN,UMC,EAR
+PHL,Philippines,EAS,LMC,EAR
+POL,Poland,ECS,HIC,LTE
+PRT,Portugal,ECS,HIC,PST
+PRI,Puerto Rico,LCN,HIC,LTE
+QAT,Qatar,MEA,HIC,LTE
+ROU,Romania,ECS,HIC,LTE
+RUS,Russia,ECS,HIC,LTE
+RWA,Rwanda,SSF,LIC,EAR
+WSM,Samoa,EAS,UMC,EAR
+SMR,San Marino,ECS,HIC,
+STP,Sao Tome and Principe,SSF,LMC,
+SAU,Saudi Arabia,MEA,HIC,EAR
+SEN,Senegal,SSF,LMC,PRE
+SRB,Serbia,ECS,UMC,LTE
+SYC,Seychelles,SSF,HIC,LTE
+SLE,Sierra Leone,SSF,LIC,PRE
+SGP,Singapore,EAS,HIC,PST
+SXM,Sint Maarten,LCN,HIC,
+SVK,Slovakia,ECS,HIC,LTE
+SVN,Slovenia,ECS,HIC,PST
+SLB,Solomon Islands,EAS,LMC,EAR
+SOM,Somalia,SSF,LIC,PRE
+ZAF,South Africa,SSF,UMC,EAR
+SSD,South Sudan,SSF,LIC,PRE
+ESP,Spain,ECS,HIC,PST
+LKA,Sri Lanka,SAS,LMC,LTE
+KNA,St. Kitts and Nevis,LCN,HIC,
+LCA,St. Lucia,LCN,UMC,LTE
+MAF,Saint Martin,LCN,HIC,
+VCT,St. Vincent and the Grenadines,LCN,UMC,LTE
+SDN,Sudan,SSF,LIC,PRE
+SUR,Suriname,LCN,UMC,EAR
+SWE,Sweden,ECS,HIC,PST
+CHE,Switzerland,ECS,HIC,PST
+SYR,Syria,MEA,LIC,EAR
+TWN,Taiwan,EAS,HIC,
+TJK,Tajikistan,ECS,LMC,EAR
+TZA,Tanzania,SSF,LMC,PRE
+THA,Thailand,EAS,UMC,LTE
+TLS,Timor-Leste,EAS,LMC,PRE
+TGO,Togo,SSF,LIC,PRE
+TON,Tonga,EAS,UMC,EAR
+TTO,Trinidad and Tobago,LCN,HIC,LTE
+TUN,Tunisia,MEA,LMC,LTE
+TUR,Turkiye,ECS,UMC,EAR
+TKM,Turkmenistan,ECS,UMC,EAR
+TCA,Turks and Caicos Islands,LCN,HIC,
+TUV,Tuvalu,EAS,UMC,
+UGA,Uganda,SSF,LIC,PRE
+UKR,Ukraine,ECS,UMC,PST
+ARE,United Arab Emirates,MEA,HIC,LTE
+GBR,United Kingdom,ECS,HIC,PST
+USA,United States,NAC,HIC,PST
+URY,Uruguay,LCN,HIC,LTE
+UZB,Uzbekistan,ECS,LMC,EAR
+VUT,Vanuatu,EAS,LMC,EAR
+VEN,Venezuela,LCN,LMC,EAR
+VNM,Vietnam,EAS,LMC,LTE
+VIR,Virgin Islands,LCN,HIC,LTE
+PSE,West Bank and Gaza,MEA,LMC,EAR
+YEM,Yemen,MEA,LIC,EAR
+ZMB,Zambia,SSF,LMC,PRE
+ZWE,Zimbabwe,SSF,LMC,EAR
