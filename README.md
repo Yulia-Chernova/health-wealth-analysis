@@ -83,7 +83,6 @@ The raw datasets required significant preprocessing before analysis.
 
 ```
 data/
-    processed/
 
 powerbi/
 
