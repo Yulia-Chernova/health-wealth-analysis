@@ -1,4 +1,4 @@
-# Health, Wealth & Longevity
+# Health, Inequality & Longevity
 
 ## Project Overview
 
