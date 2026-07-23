@@ -15,6 +15,9 @@ Following the initial data modeling in Power BI, I leveraged **Google BigQuery**
 3. **Healthcare Expenditure & Regional Anomalies**
    * Analyzed 5-year baseline (2000–2004) vs. recent (2019–2023) averages across income groups and regions to smooth out short-term fluctuations.
    * **Key Finding:** Identified **South Asia** as the top growth region (+286.95% relative growth). Performed a targeted drill-down revealing that all South Asian countries experienced substantial surges (led by Nepal at +565.79% and Bangladesh at +463.42%).
+   * **Life Expectancy Gains in Sub-Saharan Africa**
+   * Further exploratory queries highlighted Sub-Saharan Africa as a standout region for significant growth in overall life expectancy over the two-decade span.
+   * *Analytical Note:* While the raw metric trend is strongly positive, underlying drivers (e.g., healthcare infrastructure, disease control programs, international aid) go beyond the available metric variables in the current dataset.
 
 4. **Life Expectancy & Convergence Trends**
    * Calculated long-term life expectancy regional averages and tracked the evolution of country-level performance relative to regional baselines between 2000 and 2023.
