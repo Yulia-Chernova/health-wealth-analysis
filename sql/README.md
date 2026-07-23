@@ -1,95 +1,69 @@
 # SQL Analysis (Google BigQuery)
 
-Following the initial data modeling and visualization in Power BI, I leveraged **Google BigQuery** to perform end-to-end Exploratory Data Analysis (EDA). The analytical workflow covers data consolidation, data completeness auditing, macro-level metric aggregations, and regional drill-downs.
+Following the initial exploratory analysis and dashboard development in Power BI, I used **Google BigQuery** to extend the research with SQL. While the dashboard revealed overall patterns, SQL enabled deeper investigation of specific questions that required aggregation, drill-down analysis, and window functions.
+
+This SQL phase forms the second stage of the project workflow. The final stage will use **R (Posit)** for statistical analysis and hypothesis testing.
 
 ---
 
-## 🔑 Key Findings & Data Insights
+# Research Objectives
 
-### 1. South Asia Health Expenditure Surge (+286.95%)
-* **Finding:** When comparing baseline health expenditure per capita (`chex_pc`) between the early 2000s (2000–2004) and recent years (2019–2023), **South Asia** demonstrated the highest relative growth among all World Bank regions (+286.95%).
-* **Country Drill-Down:** Regional breakdown revealed that this surge was uniform across all countries in the region rather than driven by a single outlier:
-  * **Nepal:** +565.79%
-  * **Bangladesh:** +463.42%
-  * **Bhutan:** +291.28%
-  * **Maldives:** +275.38%
-  * **Sri Lanka:** +262.18%
-  * **India:** +248.15%
-* **Analytical Note:** Identifying the macroeconomic, policy, or demographic drivers behind this uniform regional trend lies outside the scope of quantitative SQL data alone, requiring qualitative policy research.
+The SQL analysis focused on answering questions that could not be fully explored through visualizations alone:
 
-### 2. Life Expectancy Gains in Sub-Saharan Africa
-* **Finding:** Exploratory queries tracking life expectancy across World Bank regions highlighted **Sub-Saharan Africa** as a standout region, showing significant gains in life expectancy over the 2000–2023 study period.
-* **Analytical Note:** While the trend in raw health metrics is strongly positive, investigating the exact underlying factors (e.g., healthcare infrastructure, disease control initiatives, international aid) lies beyond the current quantitative dataset.
+- How did healthcare expenditure per capita change across World Bank income groups?
+- Which regions experienced the largest increase in healthcare expenditure?
+- Was South Asia's exceptional growth driven by one country or shared across the region?
+- How did the redistribution effect (market Gini − disposable Gini) evolve over time?
+- How complete is the available Gini dataset across the study period?
+- How does each country's life expectancy compare with the average of its region?
+- Which countries improved or declined relative to their regional average between 2000 and 2023?
 
 ---
 
-## 📂 Analytical Framework & Methodology
+# Key Findings
 
-1. **Data Infrastructure:** Consolidated raw economic (GDP), healthcare expenditure (`chex_pc`, `che_gdp`), inequality (Gini index), demographic, and regional tables into a unified analytical base view.
-2. **Data Quality & Completeness Audit:** Evaluated data availability and consistency over time (specifically for market vs. disposable Gini indices) to ensure analytical validity.
-3. **5-Year Baseline Comparison:** Utilized 5-year averages (2000–2004 vs. 2019–2023) to eliminate short-term annual volatility when calculating absolute and percentage growth.
-4. **Regional & Country Drill-Downs:** Conducted targeted queries to isolate top-performing regions and dissect country-level contributions.
+## Healthcare Expenditure
 
----
+Using five-year averages (2000–2004 vs. 2019–2023) reduced the influence of annual fluctuations and allowed long-term comparisons.
 
-## 🛠️ Key SQL Queries & Implementation
+- South Asia recorded the largest increase in healthcare expenditure per capita (+286.95%) among all World Bank regions.
+- Country-level analysis showed that this growth was not driven by a single outlier. All countries in the region experienced substantial increases, although the magnitude varied considerably:
 
-### 1. Base View Architecture (Data Consolidation)
-*Combines raw relational tables into a single source of truth for downstream analysis.*
+| Country | Growth |
+|:---|---:|
+| Nepal | +565.79% |
+| Bangladesh | +463.42% |
+| Bhutan | +291.28% |
+| Maldives | +275.38% |
+| Sri Lanka | +262.18% |
+| India | +248.15% |
 
-```sql
-SELECT
-  country.country_code,
-  country.country_name,
-  gdp.year,
-  gdp.gdp_usd,
-  che_gdp.che_gdp,
-  gini.gini_disp,
-  gini.gini_mkt,
-  dem_div.dd_name,
-  income_group.incomegroup_name,
-  region.region_name,
-  life_expect.life_expect,
-  chex_pc.chex_pc
-FROM `health-wealth-analysis.raw_data.gdp` AS gdp
-LEFT JOIN `health-wealth-analysis.raw_data.che_gdp` AS che_gdp
-  ON che_gdp.country_code = gdp.country_code AND che_gdp.year = gdp.year
-LEFT JOIN `health-wealth-analysis.raw_data.gini` AS gini
-  ON gini.country_code = gdp.country_code AND gini.year = gdp.year
-LEFT JOIN `health-wealth-analysis.raw_data.country` AS country
-  ON country.country_code = gdp.country_code
-LEFT JOIN `health-wealth-analysis.raw_data.dem_div` AS dem_div
-  ON dem_div.dd_code = country.dd_code
-LEFT JOIN `health-wealth-analysis.raw_data.income_group` AS income_group
-  ON income_group.incomegroup_code = country.incomegroup_code
-LEFT JOIN `health-wealth-analysis.raw_data.region` AS region
-  ON region.region_code = country.region_code
-LEFT JOIN `health-wealth-analysis.raw_data.life_expect` AS life_expect
-  ON life_expect.country_code = gdp.country_code AND life_expect.year = gdp.year
-LEFT JOIN `health-wealth-analysis.raw_data.chex_pc` AS chex_pc
-  ON chex_pc.country_code = gdp.country_code AND chex_pc.year = gdp.year;
-```
+*The SQL analysis identified the pattern, while explaining its underlying causes requires additional economic and policy research.*
 
 ---
 
-### 2. Data Quality & Redistribution Effect Audit
-*Assesses annual data availability and evaluates state redistribution efficiency (market Gini − disposable Gini).*
+## Life Expectancy
 
-```sql
-SELECT
-  year,
-  AVG(gini_mkt - gini_disp) AS avg_redistribution_effect,
-  COUNT(country_code) AS country_count
-FROM health-wealth-analysis.raw_data.base_view
-WHERE gini_mkt IS NOT NULL AND gini_disp IS NOT NULL
-GROUP BY year
-ORDER BY year;
-```
+Regional aggregation highlighted substantial improvements in life expectancy across Sub-Saharan Africa during the study period.
+
+Window functions were then used to compare each country's life expectancy with its regional average, allowing changes in relative performance between 2000 and 2023 to be measured.
 
 ---
 
-### 3. Health Expenditure Trend by Region
-*Calculates 5-year baseline averages (2000–2004 vs. 2019–2023) to measure absolute and relative expenditure growth across global regions.*
+## Redistribution Effect & Data Quality
+
+The redistribution effect was calculated as the difference between market and disposable Gini coefficients.
+
+Before interpreting the results, data completeness was assessed by counting countries with both Gini measures available each year. The analysis showed that data coverage declined substantially in the most recent years, an important consideration when interpreting long-term trends.
+
+---
+
+# Methodology & SQL Implementation
+
+The SQL workflow consisted of four stages. Below are key code snippets illustrating the analytical logic:
+
+### 1. 5-Year Baseline Spending Comparison (CTEs & Aggregations)
+*Used CTEs and conditional aggregation to calculate baseline growth while smoothing out annual volatility.*
 
 ```sql
 WITH spending_by_region AS (
@@ -111,79 +85,8 @@ FROM spending_by_region
 ORDER BY percentage_change DESC;
 ```
 
----
-
-### 4. Health Expenditure Trend by Income Group
-*Compares healthcare expenditure per capita across World Bank income brackets.*
-
-```sql
-WITH spending_by_income AS (
-  SELECT
-    incomegroup_name,
-    ROUND(AVG(CASE WHEN year BETWEEN 2000 AND 2004 THEN chex_pc END), 2) AS avg_early,
-    ROUND(AVG(CASE WHEN year BETWEEN 2019 AND 2023 THEN chex_pc END), 2) AS avg_late
-  FROM health-wealth-analysis.raw_data.base_view
-  WHERE incomegroup_name IS NOT NULL AND chex_pc IS NOT NULL
-  GROUP BY incomegroup_name
-)
-SELECT
-  incomegroup_name,
-  avg_early,
-  avg_late,
-  ROUND(avg_late - avg_early, 2) AS absolute_change,
-  ROUND(SAFE_DIVIDE(avg_late - avg_early, avg_early) * 100, 2) AS percentage_change
-FROM spending_by_income
-ORDER BY percentage_change DESC;
-```
-
----
-
-### 5. Country Drill-Down: South Asian Healthcare Growth
-*Investigates country-level dynamics driving South Asia's regional growth surge.*
-
-```sql
-WITH spending_by_country AS (
-  SELECT
-    country_name,
-    ROUND(AVG(CASE WHEN year BETWEEN 2000 AND 2004 THEN chex_pc END), 2) AS avg_early,
-    ROUND(AVG(CASE WHEN year BETWEEN 2019 AND 2023 THEN chex_pc END), 2) AS avg_late
-  FROM health-wealth-analysis.raw_data.base_view
-  WHERE chex_pc IS NOT NULL AND region_name = 'South Asia'
-  GROUP BY country_name
-)
-SELECT
-  country_name,
-  avg_early,
-  avg_late,
-  ROUND(avg_late - avg_early, 2) AS absolute_change,
-  ROUND(SAFE_DIVIDE(avg_late - avg_early, avg_early) * 100, 2) AS percentage_change
-FROM spending_by_country
-ORDER BY percentage_change DESC;
-```
-
----
-
-### 6. Overall Regional Life Expectancy
-*Calculates long-term average life expectancy across World Bank regions.*
-
-```sql
-SELECT
-  r.region_name,
-  ROUND(AVG(l.life_expect), 1) AS avg_life_expectancy
-FROM `health-wealth-analysis.raw_data.life_expect` AS l
-LEFT JOIN `health-wealth-analysis.raw_data.country` AS c
-  ON l.country_code = c.country_code
-LEFT JOIN `health-wealth-analysis.raw_data.region` AS r
-  ON c.region_code = r.region_code
-WHERE r.region_name IS NOT NULL
-GROUP BY r.region_name
-ORDER BY avg_life_expectancy DESC;
-```
-
----
-
-### 7. Country vs. Regional Life Expectancy Gap Evolution
-*Measures how individual countries perform relative to their regional average between 2000 and 2023 using window functions and pivoting.*
+### 2. Country vs. Regional Life Expectancy Gap (Window Functions & Pivoting)
+*Used `AVG() OVER (PARTITION BY ...)` to benchmark country performance against regional averages over time.*
 
 ```sql
 WITH life_expect_by_year AS (
@@ -220,5 +123,8 @@ FROM pivoted;
 
 ---
 
-## 🚀 Next Steps
-* Transitioning to **R** for statistical modeling, correlation analysis, and regression testing to evaluate relationships between GDP, healthcare investment, and life expectancy metrics.
+# Key Techniques Used
+
+- **Advanced SQL:** Window Functions (`OVER`, `PARTITION BY`), CTEs (`WITH` clauses), Conditional Aggregation (`CASE WHEN`).
+- **Data Integrity:** Data auditing, `SAFE_DIVIDE` to prevent zero-division errors, Handling `NULL` values.
+- **Relational Operations:** Multi-table `LEFT JOIN`s for creating consolidated views.
